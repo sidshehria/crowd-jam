@@ -31,7 +31,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 4000;
 
 // Health check
-app.get("/health", (req, res) => {
+app.get("/health", (req: express.Request, res: express.Response) => {
   res.json({ 
     status: "ok",
     timestamp: new Date().toISOString(),
@@ -42,7 +42,7 @@ app.get("/health", (req, res) => {
 });
 
 // AI suggestion endpoint
-app.post("/ai/suggest", async (req, res) => {
+app.post("/ai/suggest", async (req: express.Request, res: express.Response) => {
   const { category, context } = req.body;
 
   if (!category) {
